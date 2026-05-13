@@ -1,0 +1,32 @@
+name: Deploy node.js app to server on push
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: 'latest'
+    -name: Install dependencies
+      run: npm install
+    -name: test
+      run: npm test
+    # - name: Set up SSH
+    #   uses: appleboy/ssh-action@v1.0.3
+    #   with:
+    #     host: ${{ secrets.SERVER_HOST }}
+    #     username: ${{ secrets.SERVER_USER }}
+    #     key: ${{ secrets.SERVER_SSH_KEY }}
+    #   script: |
+    #     cd /Git-actions-deploy
+    #     git pull origin main
+    #     docker-compose down
+    #     docker-compose up -d --build
