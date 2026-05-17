@@ -2,7 +2,7 @@ name: Deploy node.js app to server on push
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main , feature ]
 
 jobs:
   deploy:
