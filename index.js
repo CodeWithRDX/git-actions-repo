@@ -10,6 +10,9 @@ app.get('/health', (req, res) => {
 app.get('/about', (req, res) => {
   res.send('About us! Again');
 })
+app.get('/fix', (req, res) => {
+  res.send('fix us! Again');
+})
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}!`);
 })
